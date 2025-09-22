@@ -8,7 +8,7 @@ COPY .mvn .mvn
 COPY src ./src
 
 # Compilar y empaquetar sin tests
-RUN ./mvnw -B -DskipTests package
+RUN mvn -B -DskipTests package
 
 # ---------- Etapa 2: Runtime ----------
 FROM eclipse-temurin:17-jdk-jammy
