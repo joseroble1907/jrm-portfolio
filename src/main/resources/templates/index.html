@@ -5,6 +5,7 @@
   <title>Portfolio - [[${nombre}]]</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" th:href="@{/css/prueba.css}">
+  <script th:src="@{/js/toggle.js}" defer></script>
   <script th:src="@{/js/texto.js}" defer></script>
 </head>
 <body>
@@ -24,8 +25,8 @@
             <img class="flagIcon" src="/img/es.png" alt="España"/> ES
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#" data-lang="es"><img class="flagIcon" src="/img/es.png" alt="España"/> ES</a></li>
-            <li><a class="dropdown-item" href="#" data-lang="en"><img class="flagIcon" src="/img/en.png" alt="Inglés"/> EN</a></li>
+            <li><a class="dropdown-item lang-select" href="#" data-lang="es"><img class="flagIcon" src="/img/es.png" alt="España"/> ES</a></li>
+            <li><a class="dropdown-item lang-select" href="#" data-lang="en"><img class="flagIcon" src="/img/en.png" alt="Inglés"/> EN</a></li>
           </ul>
         </div>
       </div>
@@ -34,14 +35,14 @@
     <!-- ===== CONTENIDO PRINCIPAL ===== -->
     <main class="main-content">
       <div class="container text-center mt-5 main">
-        <h1 class="display-4">[[${nombre}]]</h1>
-        <p class="lead" th:text="${descripcion}"></p>
+        <h1 class="display-4" id="nombre">[[${nombre}]]</h1>
+        <p class="lead" id="descripcion" th:text="${descripcion}"></p>
       </div>
 
       <div class="container">
         <div class="row align-items-center">
           <div class="col m-5">
-            <p id="texto-principal" class="texto-principal">
+            <p id="texto-principal" class="texto-principal" data-key="descripcionLarga">
               Desarrollador junior especializado en Desarrollo de Aplicaciones Web (DAW).
               Tengo más de un año de experiencia trabajando en front-end y back-end,
               participando en proyectos de desarrollo web, aplicaciones de escritorio y gestión de bases de datos.
@@ -60,10 +61,10 @@
 
       <!-- ===== SECCIÓN DE SKILLS ===== -->
       <section class="skills-section container mt-5 mb-5">
-        <h2 class="text-center mb-4">Habilidades</h2>
+        <h2 class="text-center mb-4" data-key="habilidadesTitulo">Habilidades</h2>
 
         <!-- 1. Lenguajes -->
-        <div class="toggle-header">Lenguajes <span class="toggle-arrow">^</span></div>
+        <div class="toggle-header" data-key="lenguajesTitulo">Lenguajes <span class="toggle-arrow">^</span></div>
         <div class="toggle-content">
           <div class="skill-card">
             <div class="skill-item">
@@ -83,7 +84,7 @@
               </div>
             </div>
             <div class="skill-item">
-              <img src="/logos/PHP.png" alt="PSP" class="skill-logo">
+              <img src="/logos/PHP.png" alt="PHP" class="skill-logo">
               <div class="bar-wrap">
                 <div class="bar">
                   <div class="progress" data-percent="40"></div>
@@ -102,7 +103,7 @@
         </div>
 
         <!-- 2. Frameworks -->
-        <div class="toggle-header">Frameworks <span class="toggle-arrow">^</span></div>
+        <div class="toggle-header" data-key="frameworksTitulo">Frameworks <span class="toggle-arrow">^</span></div>
         <div class="toggle-content">
           <div class="skill-card">
             <div class="skill-item">
@@ -114,7 +115,7 @@
               </div>
             </div>
             <div class="skill-item">
-              <img src="/logos/codeigniter.png" alt="codeig" class="skill-logo">
+              <img src="/logos/codeigniter.png" alt="CodeIgniter" class="skill-logo">
               <div class="bar-wrap">
                 <div class="bar">
                   <div class="progress" data-percent="80"></div>
@@ -133,7 +134,7 @@
         </div>
 
         <!-- 3. Herramientas -->
-        <div class="toggle-header">Herramientas <span class="toggle-arrow">^</span></div>
+        <div class="toggle-header" data-key="herramientasTitulo">Herramientas <span class="toggle-arrow">^</span></div>
         <div class="toggle-content">
           <div class="skill-card">
             <div class="skill-item">
@@ -156,7 +157,7 @@
         </div>
 
         <!-- 4. Otros -->
-        <div class="toggle-header">Otros <span class="toggle-arrow">^</span></div>
+        <div class="toggle-header" data-key="otrosTitulo">Otros <span class="toggle-arrow">^</span></div>
         <div class="toggle-content">
           <div class="skill-card">
             <div class="skill-item">
@@ -215,7 +216,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script th:src="@{/js/toggle.js}" defer></script>
   </div>
 </body>
 </html>
